@@ -1,0 +1,31 @@
+.categories{
+    display: flex;
+    overflow: hidden;
+    background-color: #fff;
+    &__name{
+        padding: 15px 10px;
+        border-bottom: 1px solid transparent;
+        font-size: 16px;
+        cursor: pointer;
+        position: relative;
+        &:not(:last-child){
+            margin-right: 50px;
+        }
+        &::before{
+            content: '';
+            height: 3px;
+            width: 100%;
+            background-color: #040037;
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            transition: bottom 0.3s ease;
+        }
+        &:hover:before{
+            bottom: 0;
+        }
+        &.active{
+            background-color: red;
+        }
+    }
+}

@@ -1,0 +1,34 @@
+.search{
+    width: 400px;
+    background-color: #f2f2f5;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    border-radius: 30px;
+    &__input{
+        color: #040037;
+        background-color: transparent;
+        border: none;
+        width: 100%;
+        height: 100%;
+        font-size: 16px;
+        outline: none;
+        &::placeholder{
+            font-size: 16px;
+            color: #040037;
+        }
+    }
+    &__btn{
+        background-color: transparent;
+        padding: 0;
+        border: none;
+        padding-top: 4px;
+        svg{
+            width: 23px;
+            height: 23px;
+            fill: #040037;
+        }
+    }
+}
