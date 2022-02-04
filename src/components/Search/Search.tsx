@@ -4,7 +4,7 @@ import { BiSearch } from 'react-icons/bi';
 import { ImCross } from 'react-icons/im';
 import { categoriesEn } from '../../types/types';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
-import { fetchProductsSearch } from '../../store/actions/products';
+import { fetchProducts, fetchProductsSearch } from '../../store/actions/products';
 import { useDispatch } from 'react-redux';
 import { fetchCategory } from '../../store/actions/categories';
 
@@ -19,7 +19,10 @@ const Search: FC = () => {
         dispatch(fetchCategory(categoriesEn.ALL));
     };
 
-    const onClick 
+    const onClickClear = () => {
+        setValue('')
+        dispatch(fetchProducts(categoriesEn.ALL))
+    }
 
     return (
         <div className="search">
@@ -36,7 +39,7 @@ const Search: FC = () => {
                 </button>
             ) : (
                 <button className="search__btn">
-                    <ImCross onClick={() => setValue('')} style={{ width: 15, cursor: 'pointer' }} />
+                    <ImCross onClick={onClickClear} style={{ width: 15, cursor: 'pointer' }} />
                 </button>
             )}
         </div>

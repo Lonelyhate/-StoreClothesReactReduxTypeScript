@@ -1,0 +1,39 @@
+.order-list{
+   background-color: #f5f5fa; 
+   width: 50%;
+   padding: 1px 0 40px;
+   &__title{
+        color: #040037;
+        font-size: 18px;
+        font-weight: 700;
+        text-align: left;
+        align-self: stretch;
+        margin-left: 80px;
+        margin-bottom: 30px;
+        span{
+            font-size: 14px;
+            font-weight: 400;
+            color: inherit;
+        }
+   }
+   &__content{
+        border: 1px dashed #ee2436;
+        padding: 10px;
+        width: 438px;
+   }
+    &__item{
+        &:not(:last-child) {
+            margin-bottom: 30px;
+        }
+    }
+    &__block{
+        width: 598px;
+        background-color: #fff;
+        padding: 40px 0 30px;
+        margin: 0px 100px 0 auto;
+        border: 1px solid #e5e5ea;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}

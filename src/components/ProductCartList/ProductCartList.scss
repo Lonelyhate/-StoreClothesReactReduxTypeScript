@@ -1,0 +1,8 @@
+.cart-list{
+    margin-top: 40px;
+    overflow: auto;
+    max-height: 400px;
+    &__item{
+        margin-bottom: 20px;
+    }
+}

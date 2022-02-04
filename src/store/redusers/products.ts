@@ -33,10 +33,14 @@ export const productsReducer = (state = initialState, action: ProductAction):Pro
                 products: []
             }
         case ProductActionTypes.FETCH_PRODUCTS__SEARCH:
-            const newProducts = action.payload.filter(product => product.title.toLowerCase().includes(action.value.toLowerCase()))
+            let newProducts = action.payload
+            if (action.value) {
+                newProducts = action.payload.filter(product => product.title.toLowerCase().includes(action.value.toLowerCase()))
+            } 
             return {
                 ...state,
-                products: newProducts
+                products: newProducts,
+                countProducts: newProducts.length
             }
         default:
             return state

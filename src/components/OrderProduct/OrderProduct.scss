@@ -1,0 +1,43 @@
+.order-product{
+    width: 418px;
+    display: flex;
+    position: relative;
+    &__img{
+        height: 100%;
+        width: 118px;
+        margin-right: 20px;
+        display: flex;
+        align-items: center;
+        img{
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 118px;
+        }
+    }
+    &__title{
+        color: #040037;
+        font-size: 15px;
+        font-weight: normal;
+    }
+    &__text{
+        display: flex;
+    }
+    &__price{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        font-size: 16px;
+        font-weight: 700;
+        color: #040037;
+    }
+    &__btn{
+        display: block;
+        padding: 0;
+        height: 20px;
+        margin-left: auto;
+        border: none;
+        cursor: pointer;
+        background-color: transparent;
+    }
+}
