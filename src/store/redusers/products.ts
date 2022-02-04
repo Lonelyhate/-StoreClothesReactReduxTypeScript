@@ -3,7 +3,8 @@ import { ProductState, ProductAction, ProductActionTypes } from "../types/produc
 const initialState: ProductState = {
     products: [],
     loading: false,
-    error: null
+    error: null,
+    countProducts: 0
 }
 
 export const productsReducer = (state = initialState, action: ProductAction):ProductState => {
@@ -16,10 +17,12 @@ export const productsReducer = (state = initialState, action: ProductAction):Pro
                 error: null
             }
         case ProductActionTypes.FETCH_PRODUCTS_SUCCESS:
+            
             return {
                 ...state,
                 loading: false,
-                products: action.payload,
+                products: action.payload.products,
+                countProducts: action.payload.products.length,
                 error: null
             }
         case ProductActionTypes.FETCH_PRODUCTS_ERROR:
@@ -28,6 +31,12 @@ export const productsReducer = (state = initialState, action: ProductAction):Pro
                 loading: false,
                 error: action.payload,
                 products: []
+            }
+        case ProductActionTypes.FETCH_PRODUCTS__SEARCH:
+            const newProducts = action.payload.filter(product => product.title.toLowerCase().includes(action.value.toLowerCase()))
+            return {
+                ...state,
+                products: newProducts
             }
         default:
             return state

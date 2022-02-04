@@ -25,7 +25,9 @@
             bottom: 0;
         }
         &.active{
-            background-color: red;
+            &::before {
+                bottom: 0;
+            }
         }
     }
 }

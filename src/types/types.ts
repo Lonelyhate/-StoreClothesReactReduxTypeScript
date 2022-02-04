@@ -1,6 +1,6 @@
 
 
-export enum categories {
+export enum categoriesRus {
     ALL = 'Все',
     MENS_CLOTHING = 'Мужская одежда',
     WOMAN_CLOTHING = 'Женская одежда',
@@ -8,7 +8,21 @@ export enum categories {
     ELCTRONICS = 'Электроника'
 }
 
-export type categoriesNamesTypes = categories.ALL | categories.MENS_CLOTHING | categories.WOMAN_CLOTHING | categories.JEWELERY | categories.ELCTRONICS
+export enum categoriesEn {
+    ALL = 'All',
+    MENS_CLOTHING = "men's clothing",
+    WOMAN_CLOTHING = "women's clothing",
+    JEWELERY = 'jewelery',
+    ELCTRONICS = 'electronics'
+}
+
+export type typeCategoriesEn = categoriesEn.ALL | categoriesEn.MENS_CLOTHING | categoriesEn.WOMAN_CLOTHING | categoriesEn.JEWELERY | categoriesEn.ELCTRONICS
+export type typeCategoriesRus = categoriesRus.ALL | categoriesRus.MENS_CLOTHING | categoriesRus.WOMAN_CLOTHING | categoriesRus.JEWELERY | categoriesRus.ELCTRONICS
+
+export interface categoriesNamesTypes {
+    rus: typeCategoriesRus
+    en: typeCategoriesEn
+}
 
 export type rating = {
     rate: number,

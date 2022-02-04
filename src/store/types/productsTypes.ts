@@ -3,13 +3,15 @@ import { IProduct } from "../../types/types";
 export interface ProductState {
     products: IProduct[],
     loading: boolean,
-    error: null | string
+    error: null | string,
+    countProducts: number
 }
 
 export enum ProductActionTypes {
     FETCH_PRODUCTS = 'FETCH_PRODUCTS',
     FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS',
-    FETCH_PRODUCTS_ERROR = 'FETCH_PRODUCTS_ERROR'
+    FETCH_PRODUCTS_ERROR = 'FETCH_PRODUCTS_ERROR',
+    FETCH_PRODUCTS__SEARCH = 'FETCH_PRODUCTS_SEARCH'
 }
 
 interface FetchProductsAction {
@@ -18,7 +20,10 @@ interface FetchProductsAction {
 
 interface FetchProductsSuccessAction {
     type: ProductActionTypes.FETCH_PRODUCTS_SUCCESS
-    payload: IProduct[]
+    payload: {
+        products: IProduct[]
+        productsCount: number
+    }
 }
 
 interface FetchProductsErrorAction {
@@ -26,4 +31,10 @@ interface FetchProductsErrorAction {
     payload: string
 }
 
-export type ProductAction = FetchProductsAction | FetchProductsSuccessAction | FetchProductsErrorAction
+interface FetchProductSearchAction {
+    type: ProductActionTypes.FETCH_PRODUCTS__SEARCH
+    payload: IProduct[]
+    value: string
+}
+
+export type ProductAction = FetchProductsAction | FetchProductsSuccessAction | FetchProductsErrorAction | FetchProductSearchAction
