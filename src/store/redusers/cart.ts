@@ -32,15 +32,25 @@ export const cartReducer = (state = initialState, action: CartAction ):CartState
                 totalPrice: getTotalPrice(action.payload)
             }
         case CartActionTypes.FETCH_CART_ADD:
+            const currentProductsInCartAdd = [...state.productsInCart, action.payload]
+            const productsLength = currentProductsInCartAdd.length
+            const totalSum = getTotalPrice(currentProductsInCartAdd)
             return {
                 ...state,
                 productsInCart: [...state.productsInCart, action.payload],
+                countInCart: productsLength,
+                totalPrice: totalSum
 
             }
         case CartActionTypes.FETCH_CART_DELETE:
+            const currentProductsInCartDel = state.productsInCart.filter(product => product.id !== action.payload)
+            const productCountDel = currentProductsInCartDel.length
+            const totalSumDel = getTotalPrice(currentProductsInCartDel)
             return {
                 ...state,
-                productsInCart: state.productsInCart.filter(product => product.id !== action.payload)
+                productsInCart: state.productsInCart.filter(product => product.id !== action.payload),
+                countInCart: productCountDel,
+                totalPrice: totalSumDel
             }
         case CartActionTypes.FETCH_CART_ERROR:
             return {

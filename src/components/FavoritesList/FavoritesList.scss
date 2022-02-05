@@ -1,0 +1,11 @@
+.favorites-list{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    max-width: 980px;
+    margin: 0 auto;
+    &__item{
+        margin-bottom: 30px;
+    }
+}

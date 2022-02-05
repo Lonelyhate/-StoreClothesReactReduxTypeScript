@@ -4,7 +4,8 @@ const initialState: ProductState = {
     products: [],
     loading: false,
     error: null,
-    countProducts: 0
+    countProducts: 0,
+    currentProduct: null
 }
 
 export const productsReducer = (state = initialState, action: ProductAction):ProductState => {
@@ -41,6 +42,12 @@ export const productsReducer = (state = initialState, action: ProductAction):Pro
                 ...state,
                 products: newProducts,
                 countProducts: newProducts.length
+            }
+        case ProductActionTypes.GET_CURRENT_PRODUCT:
+            return {
+                ...state,
+                currentProduct: action.payload,
+                loading: false
             }
         default:
             return state

@@ -17,6 +17,9 @@
         .cart__content{
             right: 0;
         }
+        .cart__empty{
+            transform: translateY(0);
+        }
     }
     &__content{
         width: 33%;
@@ -69,6 +72,32 @@
         color: #040037;
         text-transform: uppercase;
         font-size: 18px;
+    }
+    &__empty{
+        position: absolute;
+        right: 100px;
+        top: 100px;
+        width: 438px;
+        height: 138px;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        flex-direction: column;
+        transform: translateY(-20px);
+        transition: transform 0.3s ease-in-out;
+        h4{
+            font-size: 16px;
+            font-weight: 700;
+            color: #040037;
+            margin-bottom: 15px;
+        }
+        P{
+            font-size: 14px;
+            color: #040037;
+            margin-right: 14px;
+        }
     }
 
 }

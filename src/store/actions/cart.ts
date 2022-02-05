@@ -3,10 +3,6 @@ import { Dispatch } from "react"
 import { IProduct } from "../../types/types"
 import { CartAction, CartActionTypes } from "../types/cartTypes"
 
-const api = axios.create({
-    baseURL: 'http://localhost:3001/'
-})
-
 export const fetchCartProducts = () => {
     return async (dispatch: Dispatch<CartAction>) => {
         try {

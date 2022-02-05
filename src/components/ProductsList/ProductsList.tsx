@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { categoriesNamesTypes, IProduct, typeCategoriesEn } from '../../types/types';
+import { categoriesNamesTypes, IProduct, pages, typeCategoriesEn } from '../../types/types';
 import ProductItem from '../ProductItem/ProductItem';
-import ProductItemSkeleton from '../ReactSkeletonItems/ProductItem';
+import ProductItemSkeleton from '../ReactSkeletonItems/ProductItemSkeleton';
 import './ProductsList.scss';
 
 interface ProductsListProps {
@@ -30,7 +30,7 @@ const ProductsList: FC<ProductsListProps> = ({
             </div>
             <div className="products-list__content">
                 {!loading
-                    ? products.map((product) => <ProductItem key={product.id} product={product} />)
+                    ? products.map((product) => <ProductItem key={product.id} product={product} page={pages.HOME} />)
                     : [...Array(8)].map((item, index) => <ProductItemSkeleton key={index} />)}
             </div>
         </div>

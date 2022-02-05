@@ -1,8 +1,9 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import OrderList from '../components/OrderList/OrderList';
 import OrderTotal from '../components/OrderTotal/OrderTotal';
 import { useTypedSelector } from '../hooks/useTypedSelector';
+import { fetchCartProducts } from '../store/actions/cart';
 import './Pages.scss'
 
 const CartPage: FC = () => {

@@ -42,3 +42,40 @@ export const fetchProductsSearch = (value: string) => {
         }
     }
 }
+
+export const postCurrentProduct = (product: IProduct) => {
+    return async (dispatch: Dispatch<ProductAction>) => {
+        try {
+            dispatch({type: ProductActionTypes.FETCH_PRODUCTS})
+            await axios.put('http://localhost:3001/currentgame', product)
+            dispatch({
+                type: ProductActionTypes.GET_CURRENT_PRODUCT,
+                payload: product
+            })
+        } catch(e) {
+            dispatch({
+                type: ProductActionTypes.FETCH_PRODUCTS_ERROR,
+                payload: 'Ошибка загузка товара'
+            })
+        }
+    }
+}
+
+export const getCurrentProduct = () => {
+    return async (dispatch: Dispatch<ProductAction>) => {
+        try {
+            const response = await axios.get('http://localhost:3001/currentgame')
+            dispatch({
+                type: ProductActionTypes.GET_CURRENT_PRODUCT,
+                payload: response.data
+            })
+        } catch(e) {
+            dispatch({
+                type: ProductActionTypes.FETCH_PRODUCTS_ERROR,
+                payload: 'Ошибка загузка товара'
+            })
+        }
+    }
+}
+
+

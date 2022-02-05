@@ -16,6 +16,13 @@ export enum categoriesEn {
     ELCTRONICS = 'electronics'
 }
 
+export enum pages {
+    HOME = 'HOME',
+    FAVORITES = 'FAVORITES'
+}
+
+export type typePages = pages.HOME | pages.FAVORITES
+
 export type typeCategoriesEn = categoriesEn.ALL | categoriesEn.MENS_CLOTHING | categoriesEn.WOMAN_CLOTHING | categoriesEn.JEWELERY | categoriesEn.ELCTRONICS
 export type typeCategoriesRus = categoriesRus.ALL | categoriesRus.MENS_CLOTHING | categoriesRus.WOMAN_CLOTHING | categoriesRus.JEWELERY | categoriesRus.ELCTRONICS
 
