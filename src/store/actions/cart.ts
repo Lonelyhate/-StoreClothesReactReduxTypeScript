@@ -7,7 +7,7 @@ export const fetchCartProducts = () => {
     return async (dispatch: Dispatch<CartAction>) => {
         try {
             dispatch({type: CartActionTypes.FETCH_CART})
-            const response = await axios.get('http://localhost:3001/cart')
+            const response = await axios.get('/cart')
             dispatch({
                 type: CartActionTypes.FETCH_CART_SUCCESS,
                 payload: response.data
@@ -29,7 +29,7 @@ export const fetchAddToCart = (product: IProduct) => {
                 payload: product
             })
             
-            await axios.post('http://localhost:3001/cart', product)
+            await axios.post('/cart', product)
         } catch(e) {
             dispatch({
                 type: CartActionTypes.FETCH_CART_ERROR,
@@ -46,7 +46,7 @@ export const fetchDeleteFromCart = (id: number) => {
                 type: CartActionTypes.FETCH_CART_DELETE,
                 payload: id
             })
-            await axios.delete(`http://localhost:3001/cart/${id}`)
+            await axios.delete(`/cart/${id}`)
         } catch(e) {
             dispatch({
                 type: CartActionTypes.FETCH_CART_ERROR,

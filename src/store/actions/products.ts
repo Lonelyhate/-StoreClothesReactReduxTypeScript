@@ -47,7 +47,7 @@ export const postCurrentProduct = (product: IProduct) => {
     return async (dispatch: Dispatch<ProductAction>) => {
         try {
             dispatch({type: ProductActionTypes.FETCH_PRODUCTS})
-            await axios.put('http://localhost:3001/currentgame', product)
+            await axios.put('/currentgame', product)
             dispatch({
                 type: ProductActionTypes.GET_CURRENT_PRODUCT,
                 payload: product
@@ -65,7 +65,7 @@ export const getCurrentProduct = () => {
     return async (dispatch: Dispatch<ProductAction>) => {
         try {
             dispatch({type: ProductActionTypes.FETCH_PRODUCTS})
-            const response = await axios.get('http://localhost:3001/currentgame')
+            const response = await axios.get('/currentgame')
             dispatch({
                 type: ProductActionTypes.GET_CURRENT_PRODUCT,
                 payload: response.data

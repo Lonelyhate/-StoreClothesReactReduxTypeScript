@@ -7,7 +7,7 @@ export const fetchFavorites = () => {
     return async (dispatch: Dispatch<FavoriteAction>) => {
         try {
             dispatch({type: FavoriteActionTypes.FETCH_FAVORITES})
-            const response = await axios.get('http://localhost:3001/favorites')
+            const response = await axios.get('/favorites')
             dispatch({
                 type: FavoriteActionTypes.FETCH_FAVORITES_SUCCESS,
                 payload: response.data
@@ -24,7 +24,7 @@ export const fetchFavorites = () => {
 export const fetchAddToFavorites = (favorite: IProduct) => {
     return async (dispatch: Dispatch<FavoriteAction>) => {
         try {
-            await axios.post('http://localhost:3001/favorites', favorite)
+            await axios.post('/favorites', favorite)
 
             dispatch({
                 type: FavoriteActionTypes.FETCH_FAVORITES_ADD,
@@ -47,7 +47,7 @@ export const fetchDeleteFromFavorites = (id: number) => {
                 payload: id
             })
 
-            await axios.delete(`http://localhost:3001/favorites/${id}`)
+            await axios.delete(`/favorites/${id}`)
         } catch(e) {
             dispatch({
                 type: FavoriteActionTypes.FETCH_FAVORITES_ERROR,
