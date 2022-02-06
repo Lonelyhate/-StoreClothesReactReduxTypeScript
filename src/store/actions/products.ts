@@ -64,6 +64,7 @@ export const postCurrentProduct = (product: IProduct) => {
 export const getCurrentProduct = () => {
     return async (dispatch: Dispatch<ProductAction>) => {
         try {
+            dispatch({type: ProductActionTypes.FETCH_PRODUCTS})
             const response = await axios.get('http://localhost:3001/currentgame')
             dispatch({
                 type: ProductActionTypes.GET_CURRENT_PRODUCT,

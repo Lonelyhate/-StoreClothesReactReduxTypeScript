@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useCheckProduct } from '../../hooks/useProductsCheck';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { getCurrentProduct } from '../../store/actions/products';
 import './ProductPage.scss';
 import cn from 'classnames';
 import { fetchAddToCart, fetchDeleteFromCart } from '../../store/actions/cart';
+import ProductPageSkeleton from '../../components/ReactSkeletonItems/ProductPageSkeleton';
+
 
 const ProductPage = () => {
     const { currentProduct, loading } = useTypedSelector((state) => state.products);
@@ -34,7 +35,7 @@ const ProductPage = () => {
     return (
         <div className="product-page container">
             {loading ? (
-                'идет загрузка'
+                <ProductPageSkeleton/>
             ) : (
                 <div className="product-page__content">
                     <div className="product-page__img">

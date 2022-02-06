@@ -33,6 +33,7 @@ const Home = () => {
         dispatch(fetchCategory(category));
     }, []);
 
+
     return (
         <div className="home container">
             <Categories

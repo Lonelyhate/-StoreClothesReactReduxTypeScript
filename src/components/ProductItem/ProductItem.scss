@@ -7,9 +7,10 @@
         display: flex;
         align-items: center;
         position: relative;
+        cursor: pointer;
         button{
             position: absolute;
-            z-index: 100;
+            z-index: 10;
             top: 10px;
             right: 10px;
             cursor: pointer;
@@ -30,6 +31,7 @@
         color: #0a0a36;
         text-align: center;
         margin-top: 25px;
+        cursor: pointer;
     }
     &__price{
         font-size: 18px;

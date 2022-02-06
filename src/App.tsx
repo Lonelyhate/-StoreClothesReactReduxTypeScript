@@ -15,7 +15,6 @@ function App() {
     useEffect(() => {
         dispatch(fetchCartProducts());
         dispatch(fetchFavorites())
-        
     }, []);
 
     return (
